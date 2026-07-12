@@ -1,0 +1,552 @@
+{
+  "_readme": "Fichier de configuration du chatbot. Chaque entrée de 'rules' correspond à une situation cliquable. Les champs marqués 'A_COMPLETER' doivent être vérifiés/complétés par la mairie ou le CCAS de Sèvres. Ce fichier peut être modifié sans toucher au code : il suffit de respecter la structure JSON (garder les guillemets et les virgules).",
+
+  "categories": [
+    { "id": "logement", "label": "🏠 Logement" },
+    { "id": "famille", "label": "👨‍👩‍👧 Famille & enfance" },
+    { "id": "energie", "label": "🔥 Énergie & factures" },
+    { "id": "alimentation", "label": "🍽️ Alimentation & précarité" },
+    { "id": "handicap", "label": "♿ Handicap & perte d'autonomie" },
+    { "id": "je_ne_sais_pas", "label": "❓ Je ne sais pas par où commencer" }
+  ],
+
+  "rules": [
+    {
+      "id": "logement_impaye_loyer",
+      "category": "logement",
+      "label": "J'ai des difficultés à payer mon loyer",
+      "result": {
+        "organisme": "CCAS de Sèvres",
+        "description": "Le CCAS peut instruire une demande d'aide et vous orienter vers le Fonds de Solidarité pour le Logement (FSL) si besoin.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Justificatif de domicile", "Avis d'imposition", "Quittances de loyer récentes"],
+        "delai": "Variable, sur rendez-vous"
+      }
+    },
+    {
+      "id": "logement_social",
+      "category": "logement",
+      "label": "Je cherche un logement social et je ne sais pas comment faire une demande",
+      "result": {
+        "organisme": "Service Logement de la mairie de Sèvres",
+        "description": "Vous pouvez déposer ou renouveler votre demande de logement social directement en mairie ou en ligne.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "https://www.demande-logement-social.gouv.fr",
+        "documents": ["Pièce d'identité", "Avis d'imposition", "Justificatifs de ressources"],
+        "delai": "Numéro unique attribué à la demande, délai variable selon zone"
+      }
+    },
+    {
+      "id": "logement_expulsion",
+      "category": "logement",
+      "label": "Je risque une expulsion ou j'ai reçu un commandement de payer",
+      "result": {
+        "organisme": "ADIL 92 (Agence Départementale d'Information sur le Logement)",
+        "description": "Conseils juridiques gratuits sur vos droits de locataire et les démarches en cas de procédure d'expulsion.",
+        "telephone": "01 84 07 03 44",
+        "email": "A_COMPLETER",
+        "lien": "https://www.adil92.org",
+        "documents": ["Bail", "Courrier reçu (commandement de payer, assignation)", "Justificatifs de ressources"],
+        "delai": "Consultation rapide recommandée dès réception du courrier"
+      }
+    },
+    {
+      "id": "logement_renovation",
+      "category": "logement",
+      "label": "Je veux des conseils pour rénover ou isoler mon logement",
+      "result": {
+        "organisme": "ADIL 92 / France Rénov'",
+        "description": "Conseils gratuits et indépendants sur les aides à la rénovation énergétique (MaPrimeRénov', éco-PTZ...).",
+        "telephone": "01 84 07 03 44",
+        "email": "A_COMPLETER",
+        "lien": "https://france-renov.gouv.fr",
+        "documents": ["Avis d'imposition", "Diagnostic de performance énergétique si disponible"],
+        "delai": "Sur rendez-vous, souvent sous 2-3 semaines"
+      }
+    },
+    {
+      "id": "logement_depot_garantie",
+      "category": "logement",
+      "label": "Je cherche une aide pour un dépôt de garantie ou un premier logement",
+      "result": {
+        "organisme": "Action Logement",
+        "description": "Avance ou garantie pour le dépôt de garantie d'un logement locatif, sous conditions.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "https://www.actionlogement.fr",
+        "documents": ["Contrat de travail ou justificatif de statut étudiant/salarié", "Offre de bail"],
+        "delai": "Variable"
+      }
+    },
+    {
+      "id": "logement_urgence",
+      "category": "logement",
+      "label": "J'ai besoin d'un logement d'urgence ou temporaire",
+      "result": {
+        "organisme": "CCAS de Sèvres — Centre d'hébergement La Maison de la Colline",
+        "description": "Accueil et accompagnement pour les personnes sans domicile ou en urgence de logement.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité si disponible"],
+        "delai": "Immédiat à court terme selon disponibilité"
+      }
+    },
+    {
+      "id": "logement_droits",
+      "category": "logement",
+      "label": "Je veux comprendre mes droits en tant que locataire ou propriétaire",
+      "result": {
+        "organisme": "ADIL 92",
+        "description": "Information juridique gratuite et neutre sur le logement (bail, charges, litiges, copropriété...).",
+        "telephone": "01 84 07 03 44",
+        "email": "A_COMPLETER",
+        "lien": "https://www.adil92.org",
+        "documents": ["Bail ou documents liés à la question posée"],
+        "delai": "Réponse rapide en consultation"
+      }
+    },
+    {
+      "id": "logement_adaptation",
+      "category": "logement",
+      "label": "Je cherche une aide pour l'adaptation de mon logement (perte de mobilité, âge)",
+      "result": {
+        "organisme": "CCAS de Sèvres — Espace Seniors",
+        "description": "Accompagnement et information sur les aides à l'adaptation du logement (salle de bain, accessibilité).",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Avis d'imposition", "Devis travaux si disponible"],
+        "delai": "Sur rendez-vous"
+      }
+    },
+
+    {
+      "id": "famille_cantine_garde",
+      "category": "famille",
+      "label": "J'ai besoin d'aide pour la cantine ou la garde de mon enfant",
+      "result": {
+        "organisme": "CAF des Hauts-de-Seine + Service Enfance mairie de Sèvres",
+        "description": "Aides au mode de garde (CMG) et tarifs de cantine selon quotient familial.",
+        "telephone": "3230 (CAF)",
+        "email": "A_COMPLETER",
+        "lien": "https://www.caf.fr",
+        "documents": ["Numéro allocataire CAF", "Avis d'imposition", "Justificatif de domicile"],
+        "delai": "Variable selon dispositif"
+      }
+    },
+    {
+      "id": "famille_periscolaire",
+      "category": "famille",
+      "label": "Je cherche des activités périscolaires ou un accompagnement scolaire",
+      "result": {
+        "organisme": "Service Enfance-Jeunesse mairie de Sèvres",
+        "description": "Informations sur les accueils de loisirs, l'aide aux devoirs et activités périscolaires.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr",
+        "documents": ["Livret de famille", "Justificatif de domicile"],
+        "delai": "Inscriptions souvent par période (rentrée, vacances)"
+      }
+    },
+    {
+      "id": "famille_creche",
+      "category": "famille",
+      "label": "Je veux inscrire mon enfant en crèche ou trouver une assistante maternelle",
+      "result": {
+        "organisme": "Service Petite Enfance mairie de Sèvres",
+        "description": "Guichet unique pour les demandes de crèche municipale et liste des assistantes maternelles agréées.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr",
+        "documents": ["Livret de famille", "Justificatif de domicile", "Justificatifs de ressources"],
+        "delai": "Commissions d'attribution périodiques"
+      }
+    },
+    {
+      "id": "famille_aide_devoirs",
+      "category": "famille",
+      "label": "Je cherche une aide aux devoirs ou un accompagnement scolaire",
+      "result": {
+        "organisme": "CCAS de Sèvres / associations locales",
+        "description": "Dispositifs de soutien scolaire gratuits proposés par la ville ou des associations partenaires.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Aucun document requis pour se renseigner"],
+        "delai": "Rentrée scolaire principalement"
+      }
+    },
+    {
+      "id": "famille_parent_isole",
+      "category": "famille",
+      "label": "Je suis parent isolé et je cherche un soutien spécifique",
+      "result": {
+        "organisme": "CAF des Hauts-de-Seine + CCAS de Sèvres",
+        "description": "Allocation de soutien familial et accompagnement social dédié aux familles monoparentales.",
+        "telephone": "3230 (CAF) / 01 41 14 10 10 (CCAS)",
+        "email": "A_COMPLETER",
+        "lien": "https://www.caf.fr",
+        "documents": ["Numéro allocataire CAF", "Justificatif de situation familiale"],
+        "delai": "Variable"
+      }
+    },
+    {
+      "id": "famille_colonies",
+      "category": "famille",
+      "label": "Je veux des informations sur les colonies de vacances ou centres de loisirs à tarif réduit",
+      "result": {
+        "organisme": "CAF des Hauts-de-Seine (aides aux vacances) + mairie de Sèvres",
+        "description": "Bons vacances CAF et tarifs préférentiels municipaux selon quotient familial.",
+        "telephone": "3230",
+        "email": "A_COMPLETER",
+        "lien": "https://www.caf.fr",
+        "documents": ["Numéro allocataire CAF", "Avis d'imposition"],
+        "delai": "Souvent avant les vacances scolaires"
+      }
+    },
+    {
+      "id": "famille_fournitures",
+      "category": "famille",
+      "label": "Je m'interroge sur les aides pour l'équipement scolaire (fournitures, cartable, bourses)",
+      "result": {
+        "organisme": "CAF (Allocation de Rentrée Scolaire) + Établissement scolaire (bourses)",
+        "description": "L'ARS est versée automatiquement sous conditions de ressources ; les bourses collège/lycée se demandent via l'établissement.",
+        "telephone": "3230",
+        "email": "A_COMPLETER",
+        "lien": "https://www.caf.fr",
+        "documents": ["Numéro allocataire CAF", "Certificat de scolarité"],
+        "delai": "Rentrée scolaire (août-septembre)"
+      }
+    },
+    {
+      "id": "famille_parentalite",
+      "category": "famille",
+      "label": "J'ai besoin d'un accompagnement à la parentalité (conseils, groupes de parole)",
+      "result": {
+        "organisme": "CCAS de Sèvres / Centre social",
+        "description": "Ateliers et groupes de parole pour parents, animés par des professionnels.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Aucun document requis"],
+        "delai": "Sessions régulières, se renseigner sur le calendrier"
+      }
+    },
+
+    {
+      "id": "energie_impaye",
+      "category": "energie",
+      "label": "Je n'arrive plus à payer mes factures d'électricité ou de chauffage",
+      "result": {
+        "organisme": "CCAS de Sèvres + Fonds de Solidarité pour le Logement (FSL)",
+        "description": "Aide d'urgence possible en cas d'impayé d'énergie, instruite par le CCAS.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Facture impayée", "Avis d'imposition", "Justificatif de domicile"],
+        "delai": "Traitement prioritaire en cas de risque de coupure"
+      }
+    },
+    {
+      "id": "energie_cheque",
+      "category": "energie",
+      "label": "Je veux savoir si j'ai droit au chèque énergie",
+      "result": {
+        "organisme": "Chèque Énergie (dispositif national)",
+        "description": "Aide automatique selon le revenu fiscal de référence, envoyée sans démarche si vous êtes éligible.",
+        "telephone": "0 805 204 805 (numéro vert)",
+        "email": "A_COMPLETER",
+        "lien": "https://www.chequeenergie.gouv.fr",
+        "documents": ["Avis d'imposition (vérification en ligne possible)"],
+        "delai": "Envoi automatique en fin d'année si éligible"
+      }
+    },
+    {
+      "id": "energie_coupure",
+      "category": "energie",
+      "label": "Je reçois une lettre de relance ou une menace de coupure d'énergie",
+      "result": {
+        "organisme": "CCAS de Sèvres (urgence) + médiateur de l'énergie",
+        "description": "Le CCAS peut intervenir rapidement en cas de risque de coupure ; le médiateur national de l'énergie peut aussi être saisi en cas de litige avec le fournisseur.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.energie-mediateur.fr",
+        "documents": ["Courrier de relance/coupure", "Factures récentes"],
+        "delai": "Urgent — à traiter sous quelques jours"
+      }
+    },
+    {
+      "id": "energie_conseils",
+      "category": "energie",
+      "label": "Je veux des conseils pour réduire ma consommation et mes factures",
+      "result": {
+        "organisme": "France Rénov' / ADIL 92",
+        "description": "Conseils gratuits pour réduire sa consommation d'énergie au quotidien et via des travaux.",
+        "telephone": "01 84 07 03 44",
+        "email": "A_COMPLETER",
+        "lien": "https://france-renov.gouv.fr",
+        "documents": ["Factures récentes (utile mais pas obligatoire)"],
+        "delai": "Sur rendez-vous"
+      }
+    },
+    {
+      "id": "energie_isolation",
+      "category": "energie",
+      "label": "Je cherche une aide pour isoler ou rénover mon logement (économies d'énergie)",
+      "result": {
+        "organisme": "France Rénov' (MaPrimeRénov')",
+        "description": "Aides financières pour les travaux d'isolation et de rénovation énergétique.",
+        "telephone": "0 808 800 700",
+        "email": "A_COMPLETER",
+        "lien": "https://france-renov.gouv.fr",
+        "documents": ["Avis d'imposition", "Devis de travaux"],
+        "delai": "Plusieurs semaines à mois selon dossier"
+      }
+    },
+    {
+      "id": "energie_eau",
+      "category": "energie",
+      "label": "Je n'arrive plus à payer mes factures d'eau",
+      "result": {
+        "organisme": "CCAS de Sèvres + Fonds de Solidarité pour le Logement (FSL)",
+        "description": "Le FSL peut couvrir des impayés d'eau en complément d'un accompagnement social.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Facture impayée", "Avis d'imposition"],
+        "delai": "Variable"
+      }
+    },
+    {
+      "id": "energie_fsl",
+      "category": "energie",
+      "label": "Je veux savoir comment fonctionne le Fonds de Solidarité pour le Logement (FSL)",
+      "result": {
+        "organisme": "Conseil Départemental des Hauts-de-Seine (FSL) via le CCAS de Sèvres",
+        "description": "Le FSL aide au paiement du loyer, des charges, de l'énergie ou de l'eau, instruit avec l'appui du CCAS.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.hauts-de-seine.fr",
+        "documents": ["Avis d'imposition", "Justificatifs d'impayés"],
+        "delai": "Variable selon commission"
+      }
+    },
+
+    {
+      "id": "alimentation_ponctuelle",
+      "category": "alimentation",
+      "label": "J'ai besoin d'une aide alimentaire ponctuelle",
+      "result": {
+        "organisme": "CCAS de Sèvres",
+        "description": "Le CCAS oriente vers les dispositifs d'aide alimentaire disponibles localement.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Justificatif de situation"],
+        "delai": "Traitement rapide en cas d'urgence"
+      }
+    },
+    {
+      "id": "alimentation_difficulte",
+      "category": "alimentation",
+      "label": "Je traverse une période financière difficile et je ne sais pas vers qui me tourner",
+      "result": {
+        "organisme": "CCAS de Sèvres (accueil social généraliste)",
+        "description": "Un premier rendez-vous permet de faire un point global sur votre situation et les aides mobilisables.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Avis d'imposition"],
+        "delai": "Sur rendez-vous"
+      }
+    },
+    {
+      "id": "alimentation_epicerie",
+      "category": "alimentation",
+      "label": "Je cherche une épicerie solidaire ou un point de distribution",
+      "result": {
+        "organisme": "A_COMPLETER (épicerie solidaire locale)",
+        "description": "A_COMPLETER : nom, adresse et horaires de la structure locale à indiquer par le CCAS.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "A_COMPLETER",
+        "documents": ["Pièce d'identité", "Justificatif de ressources (selon structure)"],
+        "delai": "A_COMPLETER"
+      }
+    },
+    {
+      "id": "alimentation_secours",
+      "category": "alimentation",
+      "label": "Je veux une aide financière d'urgence (secours exceptionnel)",
+      "result": {
+        "organisme": "CCAS de Sèvres",
+        "description": "Un secours exceptionnel peut être accordé après étude du dossier par le CCAS.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Avis d'imposition", "Justificatif de la difficulté rencontrée"],
+        "delai": "Variable selon urgence"
+      }
+    },
+    {
+      "id": "alimentation_etudiant",
+      "category": "alimentation",
+      "label": "Je suis étudiant ou jeune actif et j'ai des difficultés financières",
+      "result": {
+        "organisme": "CROUS / Mission Locale + CCAS de Sèvres",
+        "description": "Aides spécifiques étudiants (CROUS) ou jeunes actifs (Mission Locale), en complément d'un accompagnement CCAS si besoin.",
+        "telephone": "A_COMPLETER",
+        "email": "A_COMPLETER",
+        "lien": "https://www.messervices.etudiant.gouv.fr",
+        "documents": ["Certificat de scolarité ou statut", "Avis d'imposition"],
+        "delai": "Variable"
+      }
+    },
+    {
+      "id": "alimentation_budget",
+      "category": "alimentation",
+      "label": "Je cherche un accompagnement budgétaire (gestion du budget, surendettement)",
+      "result": {
+        "organisme": "Banque de France (surendettement) + CCAS de Sèvres",
+        "description": "Point de contact pour un dossier de surendettement et accompagnement budgétaire local.",
+        "telephone": "34 14 (Banque de France)",
+        "email": "A_COMPLETER",
+        "lien": "https://www.banque-france.fr/particuliers/surendettement",
+        "documents": ["Relevés bancaires", "Liste des créanciers", "Avis d'imposition"],
+        "delai": "Instruction du dossier sous plusieurs semaines"
+      }
+    },
+
+    {
+      "id": "handicap_proche",
+      "category": "handicap",
+      "label": "Je cherche un accompagnement pour un proche en situation de handicap",
+      "result": {
+        "organisme": "MDPH des Hauts-de-Seine",
+        "description": "Point d'entrée unique pour toutes les démarches liées au handicap (reconnaissance, prestations, orientation).",
+        "telephone": "01 41 91 92 24",
+        "email": "A_COMPLETER",
+        "lien": "https://www.hauts-de-seine.fr/mdph",
+        "documents": ["Certificat médical", "Pièce d'identité", "Justificatif de domicile"],
+        "delai": "Plusieurs mois pour l'instruction du dossier"
+      }
+    },
+    {
+      "id": "handicap_apa",
+      "category": "handicap",
+      "label": "Je m'interroge sur les aides pour les personnes âgées ou dépendantes (APA)",
+      "result": {
+        "organisme": "Conseil Départemental des Hauts-de-Seine (APA) via le CCAS de Sèvres",
+        "description": "L'Allocation Personnalisée d'Autonomie aide à financer les besoins liés à la perte d'autonomie à domicile ou en établissement.",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "https://www.hauts-de-seine.fr",
+        "documents": ["Pièce d'identité", "Justificatif de domicile", "Avis d'imposition"],
+        "delai": "Environ 2 mois d'instruction"
+      }
+    },
+    {
+      "id": "handicap_mdph",
+      "category": "handicap",
+      "label": "Je veux déposer un dossier auprès de la MDPH",
+      "result": {
+        "organisme": "MDPH des Hauts-de-Seine",
+        "description": "Dépôt du dossier de demande (AAH, PCH, carte mobilité inclusion, orientation...).",
+        "telephone": "01 41 91 92 24",
+        "email": "A_COMPLETER",
+        "lien": "https://www.hauts-de-seine.fr/mdph",
+        "documents": ["Certificat médical de moins de 6 mois", "Pièce d'identité", "Justificatif de domicile"],
+        "delai": "Plusieurs mois"
+      }
+    },
+    {
+      "id": "handicap_aide_domicile",
+      "category": "handicap",
+      "label": "Je cherche une aide à domicile (ménage, repas, soins)",
+      "result": {
+        "organisme": "CCAS de Sèvres — Espace Seniors",
+        "description": "Mise en relation avec des services d'aide à domicile agréés et information sur les aides financières associées.",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Avis d'imposition"],
+        "delai": "Sur rendez-vous"
+      }
+    },
+    {
+      "id": "handicap_portage_repas",
+      "category": "handicap",
+      "label": "Je veux des informations sur le portage de repas à domicile",
+      "result": {
+        "organisme": "CCAS de Sèvres — Espace Seniors",
+        "description": "Service de portage de repas à domicile pour les seniors et personnes en perte d'autonomie.",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité"],
+        "delai": "Mise en place sous quelques jours"
+      }
+    },
+    {
+      "id": "handicap_accueil_jour",
+      "category": "handicap",
+      "label": "Je cherche un établissement ou un accueil de jour pour une personne âgée/dépendante",
+      "result": {
+        "organisme": "CCAS de Sèvres — Espace Seniors + Conseil Départemental 92",
+        "description": "Information sur les structures d'accueil de jour et EHPAD du secteur.",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "https://www.hauts-de-seine.fr",
+        "documents": ["Dossier médical", "Pièce d'identité"],
+        "delai": "Variable selon disponibilité des places"
+      }
+    },
+    {
+      "id": "handicap_aidant",
+      "category": "handicap",
+      "label": "Je suis aidant familial et je cherche du soutien ou du répit",
+      "result": {
+        "organisme": "CCAS de Sèvres + Plateforme de répit des aidants 92",
+        "description": "Solutions de répit, groupes de parole et information sur le statut d'aidant familial.",
+        "telephone": "01 41 14 11 36",
+        "email": "A_COMPLETER",
+        "lien": "A_COMPLETER",
+        "documents": ["Aucun document requis pour un premier contact"],
+        "delai": "Sur rendez-vous"
+      }
+    },
+
+    {
+      "id": "generaliste_ne_sait_pas",
+      "category": "je_ne_sais_pas",
+      "label": "Je ne sais pas à qui m'adresser",
+      "result": {
+        "organisme": "CCAS de Sèvres — Accueil social",
+        "description": "Un premier accueil permet d'identifier votre besoin et de vous orienter vers le bon service, en interne ou en externe.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité"],
+        "delai": "Accueil sans rendez-vous ou sur rendez-vous selon affluence"
+      }
+    },
+    {
+      "id": "generaliste_plusieurs_difficultes",
+      "category": "je_ne_sais_pas",
+      "label": "J'ai plusieurs difficultés en même temps et je me sens dépassé(e)",
+      "result": {
+        "organisme": "CCAS de Sèvres — Rendez-vous social généraliste",
+        "description": "Un travailleur social peut faire un point global sur l'ensemble de votre situation et coordonner les démarches.",
+        "telephone": "01 41 14 10 10",
+        "email": "A_COMPLETER",
+        "lien": "https://www.sevres.fr/services/direction-de-la-cohesion-sociale-et-du-ccas/",
+        "documents": ["Pièce d'identité", "Tout document utile à votre situation"],
+        "delai": "Sur rendez-vous, prioritaire si urgence"
+      }
+    }
+  ]
+}
