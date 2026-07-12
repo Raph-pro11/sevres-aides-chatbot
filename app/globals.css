@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Porcelaine de Sèvres : blanc chaud, bleu profond, or de dorure */
+  --porcelain: #faf8f4;
+  --porcelain-tint: #eef3f6;
+  --sevres-blue: #0b4c82;
+  --sevres-blue-deep: #073763;
+  --gold: #a67c3d;
+  --ink: #1d2430;
+  --slate: #5b6472;
+  --line: #dde3e6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-porcelain: var(--porcelain);
+  --color-porcelain-tint: var(--porcelain-tint);
+  --color-sevres-blue: var(--sevres-blue);
+  --color-sevres-blue-deep: var(--sevres-blue-deep);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-line: var(--line);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-plex);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--porcelain);
+  color: var(--ink);
+  font-family: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Respect du mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
